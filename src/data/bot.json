@@ -12,7 +12,7 @@
         "question": "Have you learnt anything recently?",
         "answer": {
             "yes": "_title",
-            "no": ""
+            "no": " "
         }
     },
     "title": {
