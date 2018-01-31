@@ -7,7 +7,7 @@
 
 ### JSON Logic
 
-```json
+```
 "intro": {          - {object} Name of dialog piece
     "question":     - {string} What chat bot is saying
     "answer": {
