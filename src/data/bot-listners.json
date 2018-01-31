@@ -1,0 +1,8 @@
+{
+    "suggestion": {
+        "listeners": [
+            "idea", "suggestion", "topic"
+        ],
+        "dialog": "_make-suggestion"
+    }
+}
