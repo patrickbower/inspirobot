@@ -1,0 +1,11 @@
+{
+    "display-article": {
+        "function": "display-article"
+    },
+    "get-suggestion": {
+        "function": "get-suggestion"
+    },
+    "add-suggestion": {
+        "function": "add-suggestion"
+    }
+}
