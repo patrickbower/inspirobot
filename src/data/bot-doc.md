@@ -7,16 +7,16 @@
 
 ### JSON Logic
 
-```json
-"intro": {          // {object} Name of dialog piece
-    "question":     // {string} What chat bot is saying
+```
+"intro": {          - {object} Name of dialog piece
+    "question":     - {string} What chat bot is saying
     "answer": {
-        "yes":      // {object} Piece of dialog to be called when replying, 'yes'
-        "no":       // {object} Piece of dialog to be called when replying, 'no'
-        "input":    // {data} Data for chat bot to handle
+        "yes":      - {object} Piece of dialog to be called when replying, 'yes'
+        "no":       - {object} Piece of dialog to be called when replying, 'no'
+        "input":    - {string} Data for chat bot to handle
     },
-    "function":     // {function} Method to call
-    "listeners":    // {string} words chat bot is always listening for
+    "function":     - {function} Method to call
+    "listeners":    - {string} words chat bot is always listening for
 }
 ```
 
