@@ -1,10 +1,10 @@
 {
     "greeting": {
         "question": {
-            "12am": "Morning",
-            "5pm": "Afternoon",
-            "11pm": "Evening",
-            "5am": "Yawn..."
+            "morning": "Good morning",
+            "afternoon": "Good afternoon",
+            "evening": "Good Evening",
+            "night": "Yawn... isn't is past your bedtime?"
         },
         "answer": "_intro"
     },

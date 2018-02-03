@@ -9,9 +9,8 @@ import * as counterActions from './actions/counting';
 // styles
 import './App.css';
 
-// componants
-import Counter from './components/Counter';
-
+// components
+import DialogContainer from "./containers/DialogContainer";
 
 class App extends Component {
 
@@ -22,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Counter />
+                <DialogContainer />
             </div>
         );
     }
