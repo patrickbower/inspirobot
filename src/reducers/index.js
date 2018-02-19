@@ -1,8 +1,8 @@
-import counter from './counter'
+import dialog from './dialog'
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-    counter
+    dialog
 });
 
 export default rootReducer;

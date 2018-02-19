@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as counterActions from './actions/counting';
+import * as dialogActions from './actions/dialog';
 
 // styles
 import './App.css';
@@ -29,13 +29,13 @@ class App extends Component {
 
 function mapStateToProps(state, props) {
     return {
-        count: state.count
+        dialog: state.dialog
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(counterActions, dispatch)
+        actions: bindActionCreators(dialogActions, dispatch)
     }
 }
 

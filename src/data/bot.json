@@ -55,9 +55,7 @@
         "answer": false
     },
     "make-suggestion": {
-        "listeners": [
-            "idea", "suggestion", "topic"
-        ],
+        "listeners": ["idea", "suggestion", "topic"],
         "question": "Let's hear it",
         "answer": {
             "value": "_take-suggestion",
@@ -65,14 +63,13 @@
         }
     },
     "take-suggestion": {
-        "question": "{read back the suggestion} - sounds great - shall I save it?",
+        "question":
+            "{read back the suggestion} - sounds great - shall I save it?",
         "answer": {
             "yes": "_add-suggestion",
             "no": "_restart"
         }
     },
-
-
 
     "display-article": {
         "function": "display-article"
