@@ -1,1 +1,0 @@
-export const ADD_DIALOG_ITEM = 'ADD_DIALOG_ITEM';
