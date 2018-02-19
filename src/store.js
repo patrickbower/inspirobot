@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import rootReducer from './reducers';
 
 const defaultState = {
-    counter: 0
+    dialog: {}
 };
 
 const store = createStore(rootReducer, defaultState);
