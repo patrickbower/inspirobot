@@ -1,73 +1,73 @@
 {
     "greeting": {
         "question": {
-            "12am": "Morning",
-            "5pm": "Afternoon",
-            "11pm": "Evening",
-            "5am": "Yawn..."
+            "morning": "Good morning",
+            "afternoon": "Good afternoon",
+            "evening": "Good Evening",
+            "night": "Yawn... isn't is past your bedtime?"
         },
-        "answer": "_intro"
+        "answer": "intro"
     },
     "intro": {
         "question": "Have you learnt anything recently?",
         "answer": {
-            "yes": "_title",
-            "no": "_suggestion"
+            "yes": "title",
+            "no": "suggestion"
         }
     },
     "title": {
         "question": "What's that?",
         "answer": {
-            "value": "_content",
-            "no": "_restart"
+            "input": "content",
+            "no": "restart"
         }
     },
     "content": {
         "question": "Can you give me the skinny on that?",
         "answer": {
-            "value": "_subject",
-            "no": "_restart"
+            "input": "subject",
+            "no": "restart"
         }
     },
     "subject": {
         "question": "Sounds great! What sort of area is that?",
         "answer": {
-            "value": "_display",
-            "no": "_restart"
+            "input": "display",
+            "no": "restart"
         }
     },
     "display": {
         "question": "Thats a great article - shall I save it?",
         "answer": {
-            "yes": "_display-article",
-            "no": "_restart"
+            "yes": "display-article",
+            "no": "restart"
         }
     },
     "suggestion": {
         "question": "would you like me to suggestion something?",
         "answer": {
-            "yes": "_get-suggestion",
-            "no": "_restart"
+            "yes": "get-suggestion",
+            "no": "restart"
         }
     },
     "restart": {
         "question": "Shame, perhaps we should start over?",
-        "answer": false
-    },
-    "make-suggestion": {
-        "listeners": ["idea", "suggestion", "topic"],
-        "question": "Let's hear it",
-        "answer": {
-            "value": "_take-suggestion",
-            "no": "_restart"
+        "answer": { 
+            "yes": "restart"
         }
     },
     "take-suggestion": {
-        "question":
-            "{read back the suggestion} - sounds great - shall I save it?",
+        "question": "{read back the suggestion} - sounds great - shall I save it?",
         "answer": {
-            "yes": "_add-suggestion",
-            "no": "_restart"
+            "yes": "add-suggestion",
+            "no": "restart"
+        }
+    },
+    "make-suggestion": {
+        "question": "Let's hear it",
+        "answer": {
+            "input": "take-suggestion",
+            "no": "restart"
         }
     },
 
@@ -79,5 +79,14 @@
     },
     "add-suggestion": {
         "function": "add-suggestion"
+    },
+
+    "listen-for-suggestion": {
+        "listeners": [
+            "idea",
+            "suggestion",
+            "topic"
+        ],
+        "dialog": "_make-suggestion"
     }
 }

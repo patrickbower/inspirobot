@@ -2,13 +2,14 @@
 import React, { Component } from "react";
 
 // data
-import BotDialog from "../data/bot-dialog.json";
-import BotListeners from "../data/bot-listeners.json";
-import BotFunctions from "../data/bot-functions.json";
+import Bot from "../data/bot.json";
 
 // components
-import DialogPolarQuestion from "../components/DialogPolarQuestion";
-import DialogConversation from "../components/DialogConversation";
+import Conversation from "../components/Conversation";
+import Question from "../components/Question";
+import YesButton from "../components/YesButton";
+import NoButton from "../components/NoButton";
+import Input from "../components/Input";
 
 // component
 class DialogContainer extends Component {
@@ -17,41 +18,45 @@ class DialogContainer extends Component {
 
     this.state = {
       question: "",
-      answer: ""
+      answer: "",
+      input: ""
     };
   }
 
   componentDidMount() {
-    const initialDialog = this.getDialog(`intro`);
-    this.setState({
-      question: initialDialog.question,
-      answer: initialDialog.answer
-    });
+    this.setDialog(this.getDialog(`intro`));
   }
 
   getDialog(title) {
-    return BotDialog[title];
+    return Bot[title];
   }
 
-  answerYes() {
-      console.log('yes');
-      
+  setDialog(dialog) {
+    this.setState({
+      question: dialog.question || "",
+      answer: dialog.answer || "",
+      input: dialog.input || ""
+    });
   }
 
-  answerNo() {
-      console.log('No');
-      
+  answer = (reply) => {
+    const nextDialogPiece = this.state.answer[reply];
+    this.setDialog(this.getDialog(nextDialogPiece));
+  }
+
+  input = () => {
+    console.log('input')
   }
 
   render() {
+    console.log(this.state.answer)
     return (
       <React.Fragment>
-        <DialogConversation />
-        <DialogPolarQuestion
-          question={this.state.question}
-          answerYes={this.answerYes}
-          answerNo={this.answerNo}
-        />
+        <Conversation />
+        <Question question={this.state.question} />
+        <YesButton answer={this.answer} />
+        <NoButton answer={this.answer} />
+        <Input answer={this.input} />
       </React.Fragment>
     );
   }
