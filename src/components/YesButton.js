@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class YesButton extends Component {
   render() {
-    return <button type="button" onClick={() => this.props.answer('yes')}>Yes</button>
+    return this.props.render? <button type="button" onClick={() => this.props.answer('yes')}>Yes</button> : false;
   }
 }
 
