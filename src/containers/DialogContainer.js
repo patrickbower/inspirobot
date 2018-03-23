@@ -1,8 +1,9 @@
 // react
 import React, { Component } from "react";
 
-// data
-import Bot from "../data/bot.json";
+// middleware
+import bot from "../data/bot.json";
+import * as botActions from "../middleware/botActions";
 
 // components
 import Conversation from "../components/Conversation";
@@ -17,9 +18,11 @@ class DialogContainer extends Component {
     super();
 
     this.state = {
-      question: "",
-      answer: "",
-      input: ""
+      question: false,
+      yes: false,
+      no: false,
+      input: false,
+      action: false
     };
   }
 
@@ -28,35 +31,36 @@ class DialogContainer extends Component {
   }
 
   getDialog(title) {
-    return Bot[title];
+    return bot[title];
   }
 
   setDialog(dialog) {
     this.setState({
-      question: dialog.question || "",
-      answer: dialog.answer || "",
-      input: dialog.input || ""
+      question: dialog.question || false,
+      yes: dialog.answer.yes || false,
+      no: dialog.answer.no || false,
+      input: dialog.answer.input || false,
+      action: dialog.action || false
     });
   }
 
-  answer = (reply) => {
-    const nextDialogPiece = this.state.answer[reply];
+  answer = reply => {
+    const nextDialogPiece = this.state[reply];
     this.setDialog(this.getDialog(nextDialogPiece));
-  }
+  };
 
-  input = () => {
-    console.log('input')
-  }
+  input = actionType => {
+    console.log("input", actionType);
+  };
 
   render() {
-    console.log(this.state.answer)
     return (
       <React.Fragment>
         <Conversation />
         <Question question={this.state.question} />
-        <YesButton answer={this.answer} />
-        <NoButton answer={this.answer} />
-        <Input answer={this.input} />
+        <YesButton render={this.state.yes} answer={this.answer} />
+        <NoButton render={this.state.no} answer={this.answer} />
+        <Input render={this.state.input} answer={this.input} />
       </React.Fragment>
     );
   }
