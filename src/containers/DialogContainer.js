@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 // middleware
 import bot from "../data/bot.json";
-import * as botActions from "../middleware/botActions";
+// import * as botActions from "../middleware/botActions";
 
 // components
 import Conversation from "../components/Conversation";
@@ -44,13 +44,20 @@ class DialogContainer extends Component {
     });
   }
 
+  /**
+   * @param {string} reply - answer value maps to key of next dialog obj
+   */
   answer = reply => {
     const nextDialogPiece = this.state[reply];
     this.setDialog(this.getDialog(nextDialogPiece));
   };
 
-  input = actionType => {
-    console.log("input", actionType);
+  /**
+   * @param {string} value - content from Input component
+   */
+  input = value => {
+    // console.log("value", value);
+    this.answer("input");
   };
 
   render() {
