@@ -1,92 +1,95 @@
 {
-    "greeting": {
-        "question": {
-            "morning": "Good morning",
-            "afternoon": "Good afternoon",
-            "evening": "Good Evening",
-            "night": "Yawn... isn't is past your bedtime?"
-        },
-        "answer": "intro"
+  "greeting": {
+    "question": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good Evening",
+      "night": "Yawn... isn't is past your bedtime?"
     },
-    "intro": {
-        "question": "Have you learnt anything recently?",
-        "answer": {
-            "yes": "title",
-            "no": "suggestion"
-        }
-    },
-    "title": {
-        "question": "What's that?",
-        "answer": {
-            "input": "content",
-            "no": "restart"
-        }
-    },
-    "content": {
-        "question": "Can you give me the skinny on that?",
-        "answer": {
-            "input": "subject",
-            "no": "restart"
-        }
-    },
-    "subject": {
-        "question": "Sounds great! What sort of area is that?",
-        "answer": {
-            "input": "display",
-            "no": "restart"
-        }
-    },
-    "display": {
-        "question": "Thats a great article - shall I save it?",
-        "answer": {
-            "yes": "display-article",
-            "no": "restart"
-        }
-    },
-    "suggestion": {
-        "question": "would you like me to suggestion something?",
-        "answer": {
-            "yes": "get-suggestion",
-            "no": "restart"
-        }
-    },
-    "restart": {
-        "question": "Shame, perhaps we should start over?",
-        "answer": { 
-            "yes": "restart"
-        }
-    },
-    "take-suggestion": {
-        "question": "{read back the suggestion} - sounds great - shall I save it?",
-        "answer": {
-            "yes": "add-suggestion",
-            "no": "restart"
-        }
-    },
-    "make-suggestion": {
-        "question": "Let's hear it",
-        "answer": {
-            "input": "take-suggestion",
-            "no": "restart"
-        }
-    },
-
-    "display-article": {
-        "action": "display-article"
-    },
-    "get-suggestion": {
-        "action": "get-suggestion"
-    },
-    "add-suggestion": {
-        "action": "add-suggestion"
-    },
-
-    "listen-for-suggestion": {
-        "listeners": [
-            "idea",
-            "suggestion",
-            "topic"
-        ],
-        "dialog": "_make-suggestion"
+    "answer": "intro"
+  },
+  "intro": {
+    "question": "Have you learnt anything recently?",
+    "answer": {
+      "yes": "title",
+      "no": "suggestion"
     }
+  },
+  "title": {
+    "question": "What's that?",
+    "answer": {
+      "input": "content",
+      "no": "restart"
+    },
+    "record": "title"
+  },
+  "content": {
+    "question": "Can you give me the skinny on that?",
+    "answer": {
+      "input": "subject",
+      "no": "restart"
+    },
+    "record": "content"
+  },
+  "subject": {
+    "question": "Sounds great! What sort of area is that?",
+    "answer": {
+      "input": "display",
+      "no": "restart"
+    },
+    "record": "subject"
+  },
+  "display": {
+    "question": "Thats a great article - shall I save it?",
+    "answer": {
+      "yes": "save-article",
+      "no": "restart"
+    },
+    "display": "article"
+  },
+  "suggestion": {
+    "question": "would you like me to suggestion something?",
+    "answer": {
+      "yes": "get-suggestion",
+      "no": "restart"
+    }
+  },
+  "restart": {
+    "question": "Shame, perhaps we should start over?",
+    "answer": {
+      "yes": "intro"
+    }
+  },
+  "take-suggestion": {
+    "question": "{read back the suggestion} - sounds great - shall I save it?",
+    "answer": {
+      "yes": "add-suggestion",
+      "no": "restart"
+    }
+  },
+  "make-suggestion": {
+    "question": "Let's hear it",
+    "answer": {
+      "input": "take-suggestion",
+      "no": "restart"
+    }
+  },
+
+  "display-article": {
+    "display": "article"
+  },
+  "save-article": {
+    "action": "save-article"
+  },
+  "get-suggestion": {
+    "action": "get-suggestion"
+  },
+  "add-suggestion": {
+    "action": "add-suggestion"
+  },
+
+  "listen-for-suggestion": {
+    "listeners": ["idea", "suggestion", "topic"],
+    "dialog": "_make-suggestion"
+  }
 }
