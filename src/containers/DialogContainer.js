@@ -31,7 +31,7 @@ class DialogContainer extends Component {
       display: false,
       value: false,
       record: false,
-      conversation: []
+      conversation: false
     };
   }
 
