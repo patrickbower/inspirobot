@@ -1,2 +1,44 @@
-@import 'styles/_colors.scss'; // assuming a styles directory under src/
-// @import 'nprogress/nprogress'; // importing a css file from the nprogress node module
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'styles/_colors.scss';
+body {
+  padding: 50px;
+  height: 100vh;
+}
+
+.speechbubble {
+  &-bot {
+    text-align: left;
+
+    p {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px 20px 20px 0;
+      background: #999;
+    }
+  }
+  &-user {
+    text-align: right;
+
+    p {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px 20px 0 20px;
+      background: #fecb00;
+    }
+  }
+}
+
+footer {
+  border: 1px solid red;
+  position: fixed;
+  bottom: 10px;
+
+  button {
+
+  }
+
+  input {
+    display: block;
+    width: 100%;
+  }
+}
