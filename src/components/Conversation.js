@@ -6,12 +6,17 @@ import "../App.css";
 
 class DialogConversation extends Component {
   printDialogConversation() {
-    console.log(this.props.conversation);
-    return false
+    return this.props.conversation.map((item, index) => {
+      let key = Object.keys(item).pop();
+      return (
+        <div key={index} className={key === 'bot' ? 'speechbubble-bot' : 'speechbubble-user'}>
+          <p>{item[key]}</p>
+        </div>
+        );
+    });
   }
 
   render() {
-    // console.log('DialogConversation', this.props.conversation);
     return this.props.conversation ? this.printDialogConversation() : false;
   }
 }

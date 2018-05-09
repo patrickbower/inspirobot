@@ -55,11 +55,12 @@ class DialogContainer extends Component {
     });
   }
 
-  setAnswer(currentValue) {
+  setConversationDialog(currentValue) {
     this.setState({
-      conversation: [...this.state.conversation, {
-        user: currentValue
-      }]
+      conversation: [...this.state.conversation, 
+        { bot: this.state.question },
+        { user: currentValue }
+      ]
     });
   }
 
@@ -67,7 +68,7 @@ class DialogContainer extends Component {
    * @param {string} currentValue - answer currentValue maps to key of next dialog obj
    */
   answer = currentValue => {
-    this.setAnswer(currentValue);
+    this.setConversationDialog(currentValue);
     // Call the next piece of dialog associated with 
     // the 'yes' or 'no' key on the current bot json object.
     const nextDialogPiece = this.state[currentValue];
@@ -78,7 +79,7 @@ class DialogContainer extends Component {
    * @param {string} currentValue - content from Input component
    */
   input = currentValue => {
-    this.setAnswer(currentValue);
+    this.setConversationDialog(currentValue);
     // Add currentValue to localStorage
     userLocalStorage.set(this.state.record, currentValue);
     // Call the next piece of dialog associated with 
@@ -87,21 +88,16 @@ class DialogContainer extends Component {
     this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
-  componentDidUpdate() {
-    this.state.conversation = [...this.state.conversation, {
-      bot: this.state.question
-    }]
-  }
-
   render() {
     return <React.Fragment>
         <Conversation conversation={this.state.conversation}/>
-        <hr/>
         <Question question={this.state.question} />
         <DisplayContainer display={this.state.display} />
-        <YesButton render={this.state.yes} answer={this.answer} />
-        <NoButton render={this.state.no} answer={this.answer} />
-        <Input render={this.state.input} answer={this.input} />
+        <footer className="footer">
+          <YesButton render={this.state.yes} answer={this.answer} />
+          <NoButton render={this.state.no} answer={this.answer} />
+          <Input render={this.state.input} answer={this.input} />
+        </footer>
       </React.Fragment>;
   }
 }
