@@ -4,7 +4,7 @@ class Input extends Component {
 
   submit(event) {
     let { value } = event.currentTarget;
-    if (event.key === "Enter" && value.length > 1) {
+    if (event.key === "Enter" && value.length > 0) {
       this.props.answer(value);
       event.currentTarget.value = '';
     }

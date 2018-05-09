@@ -5,10 +5,13 @@ import React, { Component } from "react";
 import "../App.css";
 
 class DialogConversation extends Component {
+  print() {
+    console.log('print');
+  }
+
   render() {
-    return (
-      <div>DialogConversation</div>
-    );
+    console.log('DialogConversation', this.props.conversation);
+    return this.props.render ? this.print() : false;
   }
 }
 

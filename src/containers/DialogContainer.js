@@ -27,7 +27,11 @@ class DialogContainer extends Component {
       yes: false,
       no: false,
       input: false,
-      action: false
+      action: false,
+      display: false,
+      value: false,
+      record: false,
+      conversation: []
     };
   }
 
@@ -39,38 +43,60 @@ class DialogContainer extends Component {
     return bot[title];
   }
 
-  setDialog(dialog) {
+  setDialog(dialog, currentValue) {
     this.setState({
       question: dialog.question || false,
       yes: dialog.answer.yes || false,
       no: dialog.answer.no || false,
       input: dialog.answer.input || false,
       action: dialog.action || false,
-      display: dialog.display || false,
-      record: dialog.record || false
+      record: dialog.record || false,
+      display: dialog.display || false
+    });
+  }
+
+  setAnswer(currentValue) {
+    this.setState({
+      conversation: [...this.state.conversation, {
+        user: currentValue
+      }]
     });
   }
 
   /**
-   * @param {string} reply - answer value maps to key of next dialog obj
+   * @param {string} currentValue - answer currentValue maps to key of next dialog obj
    */
-  answer = reply => {
-    const nextDialogPiece = this.state[reply];
-    this.setDialog(this.getDialog(nextDialogPiece));
+  answer = currentValue => {
+    this.setAnswer(currentValue);
+    // Call the next piece of dialog associated with 
+    // the 'yes' or 'no' key on the current bot json object.
+    const nextDialogPiece = this.state[currentValue];
+    this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
   /**
-   * @param {string} value - content from Input component
+   * @param {string} currentValue - content from Input component
    */
-  input = value => {
-    userLocalStorage.set(this.state.record, value);
-    this.answer("input");
+  input = currentValue => {
+    this.setAnswer(currentValue);
+    // Add currentValue to localStorage
+    userLocalStorage.set(this.state.record, currentValue);
+    // Call the next piece of dialog associated with 
+    // the 'input' key on the current bot json object.
+    const nextDialogPiece = this.state['input'];
+    this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
+  componentDidUpdate() {
+    this.state.conversation = [...this.state.conversation, {
+      bot: this.state.question
+    }]
+  }
+
   render() {
-    // TODO: Display article before submitting
     return <React.Fragment>
-        <Conversation />
+        <Conversation conversation={this.state.conversation}/>
+        <hr/>
         <Question question={this.state.question} />
         <DisplayContainer display={this.state.display} />
         <YesButton render={this.state.yes} answer={this.answer} />
@@ -81,6 +107,3 @@ class DialogContainer extends Component {
 }
 
 export default DialogContainer;
-
-
-// TODO: Firebase integration to save article
