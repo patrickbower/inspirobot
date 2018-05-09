@@ -8,14 +8,14 @@ import bot from "../data/bot.json";
 // import * as botActions from "../middleware/botActions";
 import * as userLocalStorage from "../middleware/localStorageApi";
 
-
 // components
 import Conversation from "../components/Conversation";
 import Question from "../components/Question";
 import YesButton from "../components/YesButton";
 import NoButton from "../components/NoButton";
 import Input from "../components/Input";
-import Content from "../components/Content";
+// containers
+import DisplayContainer from "./DisplayContainer";
 
 // component
 class DialogContainer extends Component {
@@ -46,7 +46,7 @@ class DialogContainer extends Component {
       no: dialog.answer.no || false,
       input: dialog.answer.input || false,
       action: dialog.action || false,
-      content: dialog.content || false,
+      display: dialog.display || false,
       record: dialog.record || false
     });
   }
@@ -67,17 +67,12 @@ class DialogContainer extends Component {
     this.answer("input");
   };
 
-  content() {
-    // TODO: return whatever the right content needs to be
-    // - article
-    // - new topic name
-   }
-
   render() {
+    // TODO: Display article before submitting
     return <React.Fragment>
         <Conversation />
         <Question question={this.state.question} />
-        <Content render={this.state.content} content={this.content} />
+        <DisplayContainer display={this.state.display} />
         <YesButton render={this.state.yes} answer={this.answer} />
         <NoButton render={this.state.no} answer={this.answer} />
         <Input render={this.state.input} answer={this.input} />
@@ -86,3 +81,6 @@ class DialogContainer extends Component {
 }
 
 export default DialogContainer;
+
+
+// TODO: Firebase integration to save article
