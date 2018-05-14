@@ -6026,30 +6026,64 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered td {
     border: 1px solid #ddd !important; } }
 
+/********************
+ **** Guilty CSS ****
+ ********************/
 body {
   padding: 50px;
-  height: 100vh; }
+  height: 100vh;
+  background: #fafafa;
+  color: #3e3e3e; }
+
+p {
+  margin-bottom: 10px; }
+
+.main {
+  max-width: 400px;
+  margin: 0 auto; }
+
+.user-input {
+  padding: 20px 0;
+  text-align: right; }
+  .user-input * {
+    margin-bottom: 20px; }
+  .user-input button {
+    margin-right: 10px; }
+    .user-input button:last-child {
+      margin-right: 0; }
+  .user-input input {
+    display: block;
+    width: 100%;
+    font-size: 26px; }
 
 .speechbubble-bot {
-  text-align: left; }
+  text-align: left;
+  border-left: 2px solid #999; }
+  .speechbubble-bot:before {
+    content: 'INSPIR0BOT';
+    font-size: 10px;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    background: #999;
+    color: white;
+    margin-left: -2px; }
   .speechbubble-bot p {
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 20px 20px 20px 0;
-    background: #999; }
+    display: block;
+    padding: 20px; }
 
 .speechbubble-user {
-  text-align: right; }
+  text-align: right;
+  border-right: 2px solid #FECB00; }
+  .speechbubble-user:before {
+    content: 'ME';
+    font-size: 10px;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    background: #FECB00;
+    color: white;
+    margin-right: -2px; }
   .speechbubble-user p {
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 20px 20px 0 20px;
-    background: #fecb00; }
-
-footer {
-  border: 1px solid red;
-  position: fixed;
-  bottom: 10px; }
-  footer input {
     display: block;
-    width: 100%; }
+    padding: 20px; }
