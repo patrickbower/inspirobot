@@ -90,14 +90,16 @@ class DialogContainer extends Component {
 
   render() {
     return <React.Fragment>
-        <Conversation conversation={this.state.conversation}/>
-        <Question question={this.state.question} />
-        <DisplayContainer display={this.state.display} />
-        <footer className="footer">
-          <YesButton render={this.state.yes} answer={this.answer} />
-          <NoButton render={this.state.no} answer={this.answer} />
-          <Input render={this.state.input} answer={this.input} />
-        </footer>
+        <main className="main"> 
+          <Conversation conversation={this.state.conversation}/>
+          <Question question={this.state.question} />
+          <DisplayContainer display={this.state.display} />
+          <div className="user-input">
+            <Input render={this.state.input} answer={this.input} />
+            <YesButton render={this.state.yes} answer={this.answer} />
+            <NoButton render={this.state.no} answer={this.answer} />
+          </div>
+        </main>
       </React.Fragment>;
   }
 }

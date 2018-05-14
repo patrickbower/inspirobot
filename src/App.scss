@@ -1,44 +1,89 @@
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'styles/_colors.scss';
-body {
+
+
+/********************
+ **** Guilty CSS ****
+ ********************/
+
+ body {
   padding: 50px;
   height: 100vh;
+  background: #fafafa;
+  color: #3e3e3e;
 }
 
-.speechbubble {
-  &-bot {
-    text-align: left;
-
-    p {
-      display: inline-block;
-      padding: 5px 15px;
-      border-radius: 20px 20px 20px 0;
-      background: #999;
-    }
-  }
-  &-user {
-    text-align: right;
-
-    p {
-      display: inline-block;
-      padding: 5px 15px;
-      border-radius: 20px 20px 0 20px;
-      background: #fecb00;
-    }
-  }
+p {
+  margin-bottom: 10px;
 }
 
-footer {
-  border: 1px solid red;
-  position: fixed;
-  bottom: 10px;
+.main {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.user-input {
+  padding: 20px 0;
+  text-align: right;
+
+  * {
+    margin-bottom: 20px;
+  }
 
   button {
+    margin-right: 10px;
 
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   input {
     display: block;
     width: 100%;
+    font-size: 26px;
+  }
+}
+
+.speechbubble {
+  &-bot {
+    text-align: left;
+    border-left: 2px solid #999;
+
+    &:before {
+      content: 'INSPIR0BOT';
+      font-size: 10px;
+      padding: 5px;
+      width: 20px;
+      height: 20px;
+      background: #999;
+      color: white;
+      margin-left: -2px;
+    }
+
+    p {
+      display: block;
+      padding: 20px;
+    }
+  }
+  &-user {
+    text-align: right;
+    border-right: 2px solid #FECB00;
+
+    &:before {
+      content: 'ME';
+      font-size: 10px;
+      padding: 5px;
+      width: 20px;
+      height: 20px;
+      background: #FECB00;
+      color: white;
+      margin-right: -2px;
+    }
+
+    p {
+      display: block;
+      padding: 20px;
+    }
   }
 }
