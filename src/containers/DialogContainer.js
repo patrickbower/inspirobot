@@ -95,9 +95,9 @@ class DialogContainer extends Component {
           <Question question={this.state.question} />
           <DisplayContainer display={this.state.display} />
           <div className="user-input">
-            <Input render={this.state.input} answer={this.input} />
-            <YesButton render={this.state.yes} answer={this.answer} />
+            <Input render={this.state.input} answer={this.input} record={this.state.record} />
             <NoButton render={this.state.no} answer={this.answer} />
+            <YesButton render={this.state.yes} answer={this.answer} />
           </div>
         </main>
       </React.Fragment>;
