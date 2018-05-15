@@ -12,7 +12,10 @@ class Input extends Component {
 
   render() {
     return this.props.render ? (
-      <input type="text" onKeyPress={this.submit.bind(this)} />
+      <React.Fragment>
+        <div className="flag">{this.props.record}</div>
+        <textarea type="text" className="form-control" rows="3" onKeyPress={this.submit.bind(this)} />
+      </React.Fragment>
     ) : (
       false
     );

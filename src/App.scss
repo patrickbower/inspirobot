@@ -17,6 +17,8 @@ p {
   margin-bottom: 10px;
 }
 
+/////////////
+
 .main {
   max-width: 400px;
   margin: 0 auto;
@@ -38,10 +40,34 @@ p {
     }
   }
 
-  input {
+  textarea,
+  textarea:focus {
+    outline: 0;
+    // appearance: none;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    resize: none;
+  }
+
+  textarea,
+  textarea:focus {
     display: block;
     width: 100%;
-    font-size: 26px;
+    font-size: 20px;
+    background: #ffffff;
+    border-right: 2px solid #007bff;
+  }
+
+  .flag {
+    font-size: 10px;
+    padding: 5px;
+    width: auto;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #007bff;
+    color: white;
+    margin-bottom: 0;
   }
 }
 
@@ -54,9 +80,8 @@ p {
       content: 'INSPIR0BOT';
       font-size: 10px;
       padding: 5px;
-      width: 20px;
-      height: 20px;
       background: #999;
+      vertical-align: text-top;
       color: white;
       margin-left: -2px;
     }
@@ -68,15 +93,14 @@ p {
   }
   &-user {
     text-align: right;
-    border-right: 2px solid #FECB00;
+    border-right: 2px solid #007bff;
 
     &:before {
       content: 'ME';
       font-size: 10px;
       padding: 5px;
-      width: 20px;
-      height: 20px;
-      background: #FECB00;
+      background: #007bff;
+      vertical-align: text-top;
       color: white;
       margin-right: -2px;
     }
@@ -86,4 +110,11 @@ p {
       padding: 20px;
     }
   }
+}
+
+.article {
+  padding: 20px 0;
+  margin-top: 60px;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
 }
