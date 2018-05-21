@@ -88,6 +88,11 @@ class DialogContainer extends Component {
     this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
+  // keep scroll at the bottom
+  componentDidUpdate() {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
   render() {
     return <React.Fragment>
         <main className="main"> 
