@@ -6,19 +6,22 @@ class Input extends Component {
     let { value } = event.currentTarget;
     if (event.key === "Enter" && value.length > 0) {
       this.props.answer(value);
-      event.currentTarget.value = '';
+      event.currentTarget.value = "";
     }
   }
 
+  // render() {
+  //   return this.props.render ? (
+  //     <React.Fragment>
+  //       <div className="flag">{this.props.record}</div>
+  //       <textarea type="text" className="form-control" rows="3" onKeyPress={this.submit.bind(this)} />
+  //     </React.Fragment>
+  //   ) : (
+  //     false
+  //   );
+  // }
   render() {
-    return this.props.render ? (
-      <React.Fragment>
-        <div className="flag">{this.props.record}</div>
-        <textarea type="text" className="form-control" rows="3" onKeyPress={this.submit.bind(this)} />
-      </React.Fragment>
-    ) : (
-      false
-    );
+    return <textarea type="text" className="form-control" rows="1" onKeyPress={this.submit.bind(this)} />
   }
 }
 

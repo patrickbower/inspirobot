@@ -6030,9 +6030,8 @@ a.text-dark:hover, a.text-dark:focus {
  **** Guilty CSS ****
  ********************/
 body {
-  padding: 50px;
   height: 100vh;
-  background: #fafafa;
+  background: #007bff;
   color: #3e3e3e; }
 
 p {
@@ -6040,40 +6039,49 @@ p {
 
 .main {
   max-width: 400px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+  padding: 20px 0 100px; }
 
-.user-input {
+.background {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -85px;
+  background: #e4e4e4;
+  position: fixed;
+  z-index: -1; }
+
+.input-buttons {
   padding: 20px 0;
   text-align: right; }
-  .user-input * {
+  .input-buttons * {
     margin-bottom: 20px; }
-  .user-input button {
+  .input-buttons button {
     margin-right: 10px; }
-    .user-input button:last-child {
+    .input-buttons button:last-child {
       margin-right: 0; }
-  .user-input textarea,
-  .user-input textarea:focus {
+
+.input-text {
+  margin-bottom: 20px;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .input-text textarea,
+  .input-text textarea:focus {
     outline: 0;
     border: 0;
     box-shadow: none;
     border-radius: 0;
-    resize: none; }
-  .user-input textarea,
-  .user-input textarea:focus {
+    resize: none;
+    white-space: nowrap; }
+  .input-text textarea,
+  .input-text textarea:focus {
     display: block;
     width: 100%;
     font-size: 20px;
-    background: #ffffff;
-    border-right: 2px solid #007bff; }
-  .user-input .flag {
-    font-size: 10px;
-    padding: 5px;
-    width: auto;
-    display: inline-block;
-    text-transform: uppercase;
-    background: #007bff;
-    color: white;
-    margin-bottom: 0; }
+    background: #ffffff; }
 
 .speechbubble-bot {
   text-align: left;
