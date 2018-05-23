@@ -14,6 +14,7 @@ import Question from "../components/Question";
 import YesButton from "../components/YesButton";
 import NoButton from "../components/NoButton";
 import Input from "../components/Input";
+import Textarea from "../components/Textarea";
 // containers
 import DisplayContainer from "./DisplayContainer";
 
@@ -27,6 +28,7 @@ class DialogContainer extends Component {
       yes: false,
       no: false,
       input: false,
+      textarea: false,
       action: false,
       display: false,
       value: false,
@@ -35,26 +37,61 @@ class DialogContainer extends Component {
     };
   }
 
+  /**
+   * @function componentDidMount
+   * 
+   * Get first piece of dialog.
+   */
   componentDidMount() {
     this.setDialog(this.getDialog(`intro`));
   }
 
+  /**
+   * @function componentDidUpdate
+   * 
+   * Each time we change dialog page scroll to the bottom
+   */
+  componentDidUpdate() {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
+  /**
+   * @function getDialog
+   * @param {string} title - key of bot json schema
+   * @returns {object} - piece of bot json schema
+   * 
+   * Find next piece of dialog.
+   */
   getDialog(title) {
     return bot[title];
   }
 
-  setDialog(dialog, currentValue) {
+  /**
+   * @function setDialog
+   * @param {object} dialog - piece of bot json schema
+   * 
+   * Set boolean values to render only the components 
+   * we need for this piece of dialog.
+   */
+  setDialog(dialog) {
     this.setState({
       question: dialog.question || false,
       yes: dialog.answer.yes || false,
       no: dialog.answer.no || false,
       input: dialog.answer.input || false,
+      textarea: dialog.answer.textarea || false,
       action: dialog.action || false,
       record: dialog.record || false,
       display: dialog.display || false
     });
   }
 
+  /**
+   * @function setConversationDialog
+   * @param {string} currentValue - users input value
+   * 
+   * Record the conversation.
+   */
   setConversationDialog(currentValue) {
     this.setState({
       conversation: [...this.state.conversation, 
@@ -65,37 +102,36 @@ class DialogContainer extends Component {
   }
 
   /**
+   * @function answer
    * @param {string} currentValue - answer currentValue maps to key of next dialog obj
+   * 
+   * Call the next piece of dialog associated with 
+   * the 'yes' or 'no' key on the current bot json object.
    */
   answer = currentValue => {
     this.setConversationDialog(currentValue);
-    // Call the next piece of dialog associated with 
-    // the 'yes' or 'no' key on the current bot json object.
     const nextDialogPiece = this.state[currentValue];
     this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
   /**
+   * @function input
    * @param {string} currentValue - content from Input component
+   * 
+   * Add currentValue to localStorage then Call the next 
+   * piece of dialog associated with the 'input' key on 
+   * the current bot json object.
    */
   input = currentValue => {
     this.setConversationDialog(currentValue);
-    // Add currentValue to localStorage
     userLocalStorage.set(this.state.record, currentValue);
-    // Call the next piece of dialog associated with 
-    // the 'input' key on the current bot json object.
-    const nextDialogPiece = this.state['input'];
+    const nextDialogPiece = this.state['input'] || this.state['textarea'];
     this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
-  // keep scroll at the bottom
-  componentDidUpdate() {
-    window.scrollTo(0, document.body.scrollHeight);
-  }
-
   render() {
     return <React.Fragment>
-        <main className="main"> 
+        <main className="main">
           <Conversation conversation={this.state.conversation}/>
           <Question question={this.state.question} />
           <DisplayContainer display={this.state.display} />
@@ -105,7 +141,8 @@ class DialogContainer extends Component {
           </div>
         </main>
         <div className="input-text">
-          <Input answer={this.input} record={this.state.record} />
+          <Input render={this.state.input} answer={this.input} record={this.state.record} />
+          <Textarea render={this.state.textarea} answer={this.input} record={this.state.record} />
         </div>  
       </React.Fragment>;
   }

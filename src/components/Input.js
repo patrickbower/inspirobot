@@ -10,23 +10,16 @@ class Input extends Component {
     }
   }
 
-  // render() {
-  //   return this.props.render ? (
-  //     <React.Fragment>
-  //       <div className="flag">{this.props.record}</div>
-  //       <textarea type="text" className="form-control" rows="3" onKeyPress={this.submit.bind(this)} />
-  //     </React.Fragment>
-  //   ) : (
-  //     false
-  //   );
-  // }
   render() {
-    return <input 
-              type="text"
-              className="form-control" 
-              onKeyPress={this.submit.bind(this)} 
-              placeholder={this.props.record?'Add ' + this.props.record:'How can I help?'}
-            />
+    return this.props.render? (
+      <input 
+          type="text"
+          className="form-control"
+          onKeyPress={this.submit.bind(this)} 
+          placeholder={this.props.record?'New blog article ' + this.props.record:'How can I help?'}/>
+      ) : (
+        false
+      )
   }
 }
 

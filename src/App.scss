@@ -51,19 +51,26 @@ p {
   left: 0;
 
   input,
-  input:focus {
+  textarea,
+  input:focus,
+  textarea:focus {
     outline: 0;
     border: 0;
     border-radius: 0;
   }
   
-  input {
+  input,
+  textarea {
     display: block;
     margin: 0 auto;
     max-width: 400px;
     width: 100%;
     font-size: 20px;
     background: #ffffff;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #e4e4e4;
   }
 }
 

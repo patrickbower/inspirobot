@@ -12,7 +12,8 @@
     "question": "Have you learnt anything recently?",
     "answer": {
       "yes": "title",
-      "no": "suggestion"
+      "no": "suggestion",
+      "input": "default"
     }
   },
   "title": {
@@ -25,7 +26,7 @@
   "content": {
     "question": "Can you give me the skinny on that?",
     "answer": {
-      "input": "subject"
+      "textarea": "subject"
     },
     "record": "content"
   },
@@ -39,26 +40,30 @@
   "display": {
     "question": "Thats a great article - shall I save it?",
     "answer": {
-      "yes": "save-article"
+      "yes": "save-article",
+      "input": "default"
     },
     "display": "article"
   },
   "suggestion": {
     "question": "would you like me to suggestion something?",
     "answer": {
-      "yes": "get-suggestion"
+      "yes": "get-suggestion",
+      "input": "default"
     }
   },
   "restart": {
     "question": "Shame, perhaps we should start over?",
     "answer": {
-      "yes": "intro"
+      "yes": "intro",
+      "input": "default"
     }
   },
   "take-suggestion": {
     "question": "{read back the suggestion} - sounds great - shall I save it?",
     "answer": {
-      "yes": "add-suggestion"
+      "yes": "add-suggestion",
+      "input": "default"
     }
   },
   "make-suggestion": {
