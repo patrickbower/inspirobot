@@ -8,7 +8,7 @@
 
  body {
   height: 100vh;
-  background: #007bff;
+  background: #e4e4e4;
   color: #3e3e3e;
 }
 
@@ -21,18 +21,8 @@ p {
 .main {
   max-width: 400px;
   margin: 0 auto;
-  position: relative;
   min-height: 100vh;
   padding: 20px 0 100px;
-}
-
-.background {
-  width: 100vw;
-  height: 100vh;
-  margin-top: -85px;
-  background: #e4e4e4;
-  position: fixed;
-  z-index: -1;
 }
 
 .input-buttons {
@@ -53,39 +43,28 @@ p {
 }
 
 .input-text {
-  margin-bottom: 20px;
-  text-align: right;
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  background: #007bff;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 
-  textarea,
-  textarea:focus {
+  input,
+  input:focus {
     outline: 0;
     border: 0;
-    box-shadow: none;
     border-radius: 0;
-    resize: none;
-    white-space: nowrap;
   }
-  textarea,
-  textarea:focus {
+  
+  input {
     display: block;
+    margin: 0 auto;
+    max-width: 400px;
     width: 100%;
     font-size: 20px;
     background: #ffffff;
-    // border-right: 2px solid #007bff;
   }
-  // .flag {
-  //   font-size: 10px;
-  //   padding: 5px;
-  //   width: auto;
-  //   display: inline-block;
-  //   text-transform: uppercase;
-  //   background: #007bff;
-  //   color: white;
-  //   margin-bottom: 0;
-  // }
 }
 
 .speechbubble {

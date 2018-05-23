@@ -21,7 +21,12 @@ class Input extends Component {
   //   );
   // }
   render() {
-    return <textarea type="text" className="form-control" rows="1" onKeyPress={this.submit.bind(this)} />
+    return <input 
+              type="text"
+              className="form-control" 
+              onKeyPress={this.submit.bind(this)} 
+              placeholder={this.props.record?'Add ' + this.props.record:'How can I help?'}
+            />
   }
 }
 

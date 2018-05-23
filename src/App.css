@@ -6031,7 +6031,7 @@ a.text-dark:hover, a.text-dark:focus {
  ********************/
 body {
   height: 100vh;
-  background: #007bff;
+  background: #e4e4e4;
   color: #3e3e3e; }
 
 p {
@@ -6040,17 +6040,8 @@ p {
 .main {
   max-width: 400px;
   margin: 0 auto;
-  position: relative;
   min-height: 100vh;
   padding: 20px 0 100px; }
-
-.background {
-  width: 100vw;
-  height: 100vh;
-  margin-top: -85px;
-  background: #e4e4e4;
-  position: fixed;
-  z-index: -1; }
 
 .input-buttons {
   padding: 20px 0;
@@ -6063,22 +6054,21 @@ p {
       margin-right: 0; }
 
 .input-text {
-  margin-bottom: 20px;
-  text-align: right;
-  position: absolute;
+  width: 100%;
+  background: #007bff;
+  padding: 20px;
+  position: fixed;
   bottom: 0;
-  width: 100%; }
-  .input-text textarea,
-  .input-text textarea:focus {
+  left: 0; }
+  .input-text input,
+  .input-text input:focus {
     outline: 0;
     border: 0;
-    box-shadow: none;
-    border-radius: 0;
-    resize: none;
-    white-space: nowrap; }
-  .input-text textarea,
-  .input-text textarea:focus {
+    border-radius: 0; }
+  .input-text input {
     display: block;
+    margin: 0 auto;
+    max-width: 400px;
     width: 100%;
     font-size: 20px;
     background: #ffffff; }
