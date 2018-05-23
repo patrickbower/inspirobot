@@ -1,0 +1,39 @@
+.speechbubble {
+
+  &-bot,
+  &-user {
+    &:before {
+      font-size: 10px;
+      padding: 5px;
+      vertical-align: text-top;
+      color: $colour-white;
+    }
+
+    p {
+      display: block;
+      padding: 20px;
+    }
+  }
+  
+  &-bot {
+    text-align: left;
+    border-left: 2px solid $colour-dustygray;
+
+    &:before {
+      content: 'INSPIR0BOT';
+      background: $colour-dustygray;
+      margin-left: -2px;
+    }
+  }
+  
+  &-user {
+    text-align: right;
+    border-right: 2px solid $colour-azureblue;
+
+    &:before {
+      content: 'ME';
+      background: $colour-azureblue;
+      margin-right: -2px;
+    }
+  }
+}

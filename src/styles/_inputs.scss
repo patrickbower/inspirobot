@@ -1,0 +1,48 @@
+.input-buttons {
+  padding: 20px 0;
+  text-align: right;
+
+  * {
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.input-text {
+  width: 100%;
+  background: $colour-azureblue;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  input,
+  textarea,
+  input:focus,
+  textarea:focus {
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+  }
+  
+  input,
+  textarea {
+    display: block;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    font-size: 20px;
+    background: $colour-white;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $colour-mercury;
+  }
+}
