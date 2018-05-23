@@ -1,123 +1,20 @@
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+/*
+ * ITCSS - https://itcss.io
+ * @credit Harry Roberts csswizardry
+ */
+
+// settings
 @import 'styles/_colors.scss';
-
-
-/********************
- **** Guilty CSS ****
- ********************/
-
- body {
-  height: 100vh;
-  background: #e4e4e4;
-  color: #3e3e3e;
-}
-
-p {
-  margin-bottom: 10px;
-}
-
-/////////////
-
-.main {
-  max-width: 400px;
-  margin: 0 auto;
-  min-height: 100vh;
-  padding: 20px 0 100px;
-}
-
-.input-buttons {
-  padding: 20px 0;
-  text-align: right;
-
-  * {
-    margin-bottom: 20px;
-  }
-
-  button {
-    margin-right: 10px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
-.input-text {
-  width: 100%;
-  background: #007bff;
-  padding: 20px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-
-  input,
-  textarea,
-  input:focus,
-  textarea:focus {
-    outline: 0;
-    border: 0;
-    border-radius: 0;
-  }
-  
-  input,
-  textarea {
-    display: block;
-    margin: 0 auto;
-    max-width: 400px;
-    width: 100%;
-    font-size: 20px;
-    background: #ffffff;
-  }
-
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #e4e4e4;
-  }
-}
-
-.speechbubble {
-  &-bot {
-    text-align: left;
-    border-left: 2px solid #999;
-
-    &:before {
-      content: 'INSPIR0BOT';
-      font-size: 10px;
-      padding: 5px;
-      background: #999;
-      vertical-align: text-top;
-      color: white;
-      margin-left: -2px;
-    }
-
-    p {
-      display: block;
-      padding: 20px;
-    }
-  }
-  &-user {
-    text-align: right;
-    border-right: 2px solid #007bff;
-
-    &:before {
-      content: 'ME';
-      font-size: 10px;
-      padding: 5px;
-      background: #007bff;
-      vertical-align: text-top;
-      color: white;
-      margin-right: -2px;
-    }
-
-    p {
-      display: block;
-      padding: 20px;
-    }
-  }
-}
-
-.article {
-  padding: 20px 0;
-  margin-top: 60px;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
-}
+// tools
+// generic
+// elements
+@import 'styles/_elements';
+// objects
+// components
+@import 'styles/_main';
+@import 'styles/_inputs';
+@import 'styles/_speech-bubbles';
+@import 'styles/_article';
+// trumps
