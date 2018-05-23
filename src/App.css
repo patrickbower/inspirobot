@@ -6061,17 +6061,23 @@ p {
   bottom: 0;
   left: 0; }
   .input-text input,
-  .input-text input:focus {
+  .input-text textarea,
+  .input-text input:focus,
+  .input-text textarea:focus {
     outline: 0;
     border: 0;
     border-radius: 0; }
-  .input-text input {
+  .input-text input,
+  .input-text textarea {
     display: block;
     margin: 0 auto;
     max-width: 400px;
     width: 100%;
     font-size: 20px;
     background: #ffffff; }
+  .input-text ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #e4e4e4; }
 
 .speechbubble-bot {
   text-align: left;
