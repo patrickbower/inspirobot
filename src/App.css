@@ -6032,8 +6032,8 @@ a.text-dark:hover, a.text-dark:focus {
  */
 body {
   height: 100vh;
-  background: #E4E4E4;
-  color: #3E3E3E; }
+  background: #e4e4e4;
+  color: #3e3e3e; }
 
 p {
   margin-bottom: 10px; }
@@ -6056,7 +6056,7 @@ p {
 
 .input-text {
   width: 100%;
-  background: #007BFF;
+  background: #007bff;
   padding: 20px;
   position: fixed;
   bottom: 0;
@@ -6077,7 +6077,7 @@ p {
     font-size: 20px;
     background: #ffffff; }
   .input-text ::-webkit-input-placeholder {
-    color: #E4E4E4; }
+    color: #e4e4e4; }
 
 .speechbubble-bot:before, .speechbubble-user:before {
   font-size: 10px;
@@ -6093,16 +6093,16 @@ p {
   text-align: left;
   border-left: 2px solid #999999; }
   .speechbubble-bot:before {
-    content: 'INSPIR0BOT';
+    content: "INSPIR0BOT";
     background: #999999;
     margin-left: -2px; }
 
 .speechbubble-user {
   text-align: right;
-  border-right: 2px solid #007BFF; }
+  border-right: 2px solid #007bff; }
   .speechbubble-user:before {
-    content: 'ME';
-    background: #007BFF;
+    content: "ME";
+    background: #007bff;
     margin-right: -2px; }
 
 .article {

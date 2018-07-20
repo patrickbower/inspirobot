@@ -1,36 +1,45 @@
 import React, { Component } from "react";
 import * as Utils from "../utils/tools";
 
+import ActionButton from "./ActionButton";
+
 class Action extends Component {
-  saveArticle() {
-    console.log("Action component - saveArticle()");
-    return false;
+  // saveArticle() {
+  //   console.log("Action component - saveArticle()");
+  //   return false;
+  // }
+
+  // addSuggestion() {
+  //   console.log("Action component - addSuggestion");
+  //   return false;
+  // }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      trigger: undefined
+    };
   }
 
+  // TODO: Need to be able to add the name of the suggestion
+  // into the input and store the key of the suggestion in the
+  // data so we can ajax remove it from the suggest list.
   getSuggestion() {
-    // TODO: Primary - when clicking the button for a suggested topic
-    // we would expect to see the input field populated with the
-    // item just clicked. This could be a list of Yes component
-    // buttons so we have dont have specialist functionality - instead
-    // its the normal way to move through dialog.
     const { suggest } = this.props.data;
-    return Object.values(suggest).map((value, index) => {
-      return (
-        <button
-          className="btn btn-primary"
-          type="button"
-          key={index}
-          onClick={() => this.props.answer("yes")}
-        >
-          {value}
-        </button>
+    const buttonsArr = [];
+    for (let key in suggest) {
+      buttonsArr.push(
+        <ActionButton
+          render={true}
+          answer={this.props.answer}
+          text={suggest[key]}
+          key={key}
+        />
       );
-    });
-  }
+    }
 
-  addSuggestion() {
-    console.log("Action component - addSuggestion");
-    return false;
+    return <div className="input-buttons">{buttonsArr}</div>;
   }
 
   createAction() {
