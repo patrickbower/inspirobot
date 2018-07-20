@@ -9,10 +9,13 @@ class DialogConversation extends Component {
     return this.props.conversation.map((item, index) => {
       let key = Object.keys(item).pop();
       return (
-        <div key={index} className={key === 'bot' ? 'speechbubble-bot' : 'speechbubble-user'}>
+        <div
+          key={index}
+          className={key === "bot" ? "speechbubble-bot" : "speechbubble-user"}
+        >
           <p>{item[key]}</p>
         </div>
-        );
+      );
     });
   }
 

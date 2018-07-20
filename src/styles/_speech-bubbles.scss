@@ -1,5 +1,4 @@
 .speechbubble {
-
   &-bot,
   &-user {
     &:before {
@@ -14,24 +13,24 @@
       padding: 20px;
     }
   }
-  
+
   &-bot {
     text-align: left;
     border-left: 2px solid $colour-dustygray;
 
     &:before {
-      content: 'INSPIR0BOT';
+      content: "INSPIR0BOT";
       background: $colour-dustygray;
       margin-left: -2px;
     }
   }
-  
+
   &-user {
     text-align: right;
     border-right: 2px solid $colour-azureblue;
 
     &:before {
-      content: 'ME';
+      content: "ME";
       background: $colour-azureblue;
       margin-right: -2px;
     }

@@ -6,7 +6,7 @@ class Question extends Component {
       <div className="speechbubble-bot">
         <p>{this.props.question}</p>
       </div>
-    )
+    );
   }
 }
 

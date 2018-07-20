@@ -1,9 +1,9 @@
 export function displayArticle() {
-  console.log('this is the displayArticle middleware function');
+  console.log("this is the displayArticle middleware function");
 }
 
 export function getSuggestion() {
-  console.log('this is the getSuggestion middleware function');
+  console.log("this is the getSuggestion middleware function");
 }
 
 export function addSuggestion() {

@@ -1,4 +1,4 @@
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 /*
  * ITCSS - https://itcss.io
@@ -6,15 +6,15 @@
  */
 
 // settings
-@import 'styles/_colors.scss';
+@import "styles/_colors.scss";
 // tools
 // generic
 // elements
-@import 'styles/_elements';
+@import "styles/_elements";
 // objects
 // components
-@import 'styles/_main';
-@import 'styles/_inputs';
-@import 'styles/_speech-bubbles';
-@import 'styles/_article';
+@import "styles/_main";
+@import "styles/_inputs";
+@import "styles/_speech-bubbles";
+@import "styles/_article";
 // trumps

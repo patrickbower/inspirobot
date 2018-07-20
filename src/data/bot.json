@@ -72,20 +72,24 @@
       "input": "take-suggestion"
     }
   },
-
   "display-article": {
+    "question": "Would you like to save this?",
+    "answer": {},
     "display": "article"
   },
   "save-article": {
+    "question": "Do you need anything else sir?",
+    "answer": {},
     "action": "save-article"
   },
   "get-suggestion": {
+    "question": "Please select a topic",
+    "answer": {},
     "action": "get-suggestion"
   },
   "add-suggestion": {
     "action": "add-suggestion"
   },
-
   "listen-for-suggestion": {
     "listeners": ["idea", "suggestion", "topic"],
     "dialog": "_make-suggestion"

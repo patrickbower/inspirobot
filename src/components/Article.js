@@ -8,7 +8,7 @@ class Article extends Component {
         <p>{this.props.content}</p>
         <small className="text-muted">{this.props.subject}</small>
       </div>
-    )
+    );
   }
 }
 

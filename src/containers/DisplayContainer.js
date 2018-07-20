@@ -7,18 +7,15 @@ import Article from "../components/Article";
 
 class Display extends Component {
   article() {
-      var title = userLocalStorage.get('title');
-      var subject = userLocalStorage.get('subject');
-      var content = userLocalStorage.get('content');
+    var title = userLocalStorage.get("title");
+    var subject = userLocalStorage.get("subject");
+    var content = userLocalStorage.get("content");
 
-      return <Article 
-                title={title} 
-                subject={subject} 
-                content={content} />
+    return <Article title={title} subject={subject} content={content} />;
   }
 
   render() {
-    let {display} = this.props;
+    let { display } = this.props;
     return display ? this[display]() : false;
   }
 }

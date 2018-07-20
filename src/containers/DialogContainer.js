@@ -15,6 +15,7 @@ import YesButton from "../components/YesButton";
 import NoButton from "../components/NoButton";
 import Input from "../components/Input";
 import Textarea from "../components/Textarea";
+import Action from "../components/Action";
 // containers
 import DisplayContainer from "./DisplayContainer";
 
@@ -39,8 +40,8 @@ class DialogContainer extends Component {
 
   /**
    * @function componentDidMount
-   * 
-   * Get first piece of dialog.
+   *
+   * Lets kick this thing off.
    */
   componentDidMount() {
     this.setDialog(this.getDialog(`intro`));
@@ -48,7 +49,7 @@ class DialogContainer extends Component {
 
   /**
    * @function componentDidUpdate
-   * 
+   *
    * Each time we change dialog page scroll to the bottom
    */
   componentDidUpdate() {
@@ -59,7 +60,7 @@ class DialogContainer extends Component {
    * @function getDialog
    * @param {string} title - key of bot json schema
    * @returns {object} - piece of bot json schema
-   * 
+   *
    * Find next piece of dialog.
    */
   getDialog(title) {
@@ -69,11 +70,14 @@ class DialogContainer extends Component {
   /**
    * @function setDialog
    * @param {object} dialog - piece of bot json schema
-   * 
-   * Set boolean values to render only the components 
+   *
+   * Set boolean values to render only the components
    * we need for this piece of dialog.
    */
   setDialog(dialog) {
+    // if (typeof dialog.answer === 'undefined') {
+    //   dialog.answer = false;
+    // }
     this.setState({
       question: dialog.question || false,
       yes: dialog.answer.yes || false,
@@ -89,12 +93,13 @@ class DialogContainer extends Component {
   /**
    * @function setConversationDialog
    * @param {string} currentValue - users input value
-   * 
+   *
    * Record the conversation.
    */
   setConversationDialog(currentValue) {
     this.setState({
-      conversation: [...this.state.conversation, 
+      conversation: [
+        ...this.state.conversation,
         { bot: this.state.question },
         { user: currentValue }
       ]
@@ -104,8 +109,8 @@ class DialogContainer extends Component {
   /**
    * @function answer
    * @param {string} currentValue - answer currentValue maps to key of next dialog obj
-   * 
-   * Call the next piece of dialog associated with 
+   *
+   * Call the next piece of dialog associated with
    * the 'yes' or 'no' key on the current bot json object.
    */
   answer = currentValue => {
@@ -117,34 +122,45 @@ class DialogContainer extends Component {
   /**
    * @function input
    * @param {string} currentValue - content from Input component
-   * 
-   * Add currentValue to localStorage then Call the next 
-   * piece of dialog associated with the 'input' key on 
+   *
+   * Add currentValue to localStorage then Call the next
+   * piece of dialog associated with the 'input' key on
    * the current bot json object.
    */
   input = currentValue => {
     this.setConversationDialog(currentValue);
     userLocalStorage.set(this.state.record, currentValue);
-    const nextDialogPiece = this.state['input'] || this.state['textarea'];
+    const nextDialogPiece = this.state["input"] || this.state["textarea"];
     this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
   render() {
-    return <React.Fragment>
+    return (
+      <React.Fragment>
         <main className="main">
-          <Conversation conversation={this.state.conversation}/>
+          <Conversation conversation={this.state.conversation} />
           <Question question={this.state.question} />
           <DisplayContainer display={this.state.display} />
           <div className="input-buttons">
             <NoButton render={this.state.no} answer={this.answer} />
             <YesButton render={this.state.yes} answer={this.answer} />
           </div>
+          <Action action={this.state.action} data={this.props.data} />
         </main>
         <div className="input-text">
-          <Input render={this.state.input} answer={this.input} record={this.state.record} />
-          <Textarea render={this.state.textarea} answer={this.input} record={this.state.record} />
-        </div>  
-      </React.Fragment>;
+          <Input
+            render={this.state.input}
+            answer={this.input}
+            record={this.state.record}
+          />
+          <Textarea
+            render={this.state.textarea}
+            answer={this.input}
+            record={this.state.record}
+          />
+        </div>
+      </React.Fragment>
+    );
   }
 }
 

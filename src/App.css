@@ -6056,7 +6056,7 @@ p {
 
 .input-text {
   width: 100%;
-  background: #007bff;
+  background: #007BFF;
   padding: 20px;
   position: fixed;
   bottom: 0;
@@ -6077,14 +6077,13 @@ p {
     font-size: 20px;
     background: #ffffff; }
   .input-text ::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: #e4e4e4; }
+    color: #E4E4E4; }
 
 .speechbubble-bot:before, .speechbubble-user:before {
   font-size: 10px;
   padding: 5px;
   vertical-align: text-top;
-  color: white; }
+  color: #ffffff; }
 
 .speechbubble-bot p, .speechbubble-user p {
   display: block;
@@ -6092,18 +6091,18 @@ p {
 
 .speechbubble-bot {
   text-align: left;
-  border-left: 2px solid #999; }
+  border-left: 2px solid #999999; }
   .speechbubble-bot:before {
     content: 'INSPIR0BOT';
-    background: #999;
+    background: #999999;
     margin-left: -2px; }
 
 .speechbubble-user {
   text-align: right;
-  border-right: 2px solid #007bff; }
+  border-right: 2px solid #007BFF; }
   .speechbubble-user:before {
     content: 'ME';
-    background: #007bff;
+    background: #007BFF;
     margin-right: -2px; }
 
 .article {
