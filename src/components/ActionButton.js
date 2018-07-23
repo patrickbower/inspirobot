@@ -10,7 +10,8 @@ class ActionButton extends Component {
         className="btn btn-secondary"
         onClick={() => {
           this.props.answer("indirect", text),
-            UserLocalStorage.set(record, text);
+            UserLocalStorage.set(record, text),
+            this.props.suggestion(true, this.props.itemId);
         }}
       >
         {text}

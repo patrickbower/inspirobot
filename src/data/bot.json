@@ -92,12 +92,17 @@
   },
   "display-article": {
     "question": "Would you like to save this?",
-    "answer": {},
+    "answer": {
+      "input": true
+    },
     "display": "article"
   },
   "save-article": {
-    "question": "Do you need anything else sir?",
-    "answer": {},
+    "question": "Do you need anything else?",
+    "answer": {
+      "yes": "intro",
+      "input": true
+    },
     "action": "save-article"
   },
   "get-suggestion": {

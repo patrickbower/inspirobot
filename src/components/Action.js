@@ -5,10 +5,29 @@ import firebase from "../fire";
 import * as UserLocalStorage from "../middleware/localStorageApi";
 
 class Action extends Component {
-  // saveArticle() {
-  //   console.log("Action component - saveArticle()");
-  //   return false;
-  // }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      useSuggestion: false,
+      suggestionId: ""
+    };
+  }
+
+  saveArticle() {
+    const itemsRef = firebase.database().ref("article");
+    itemsRef.push({
+      title: UserLocalStorage.get("title"),
+      content: UserLocalStorage.get("content"),
+      subject: UserLocalStorage.get("subject")
+    });
+
+    if (this.state.useSuggestion) {
+      this.removeSuggestion();
+    }
+
+    return false;
+  }
 
   addSuggestion() {
     const itemsRef = firebase.database().ref("suggest");
@@ -16,6 +35,21 @@ class Action extends Component {
 
     return false;
   }
+
+  removeSuggestion() {
+    const itemId = this.state.suggestionId;
+    firebase
+      .database()
+      .ref(`/suggest/${itemId}`)
+      .remove();
+  }
+
+  useSuggestion = (state, itemId) => {
+    this.setState({
+      useSuggestion: state,
+      suggestionId: itemId
+    });
+  };
 
   getSuggestion() {
     const { suggest } = this.props.data;
@@ -29,6 +63,8 @@ class Action extends Component {
           record={this.props.record}
           text={suggest[key].title}
           key={key}
+          itemId={key}
+          suggestion={this.useSuggestion}
         />
       );
     }
@@ -42,6 +78,7 @@ class Action extends Component {
   }
 
   render() {
+    console.log(this.state);
     return this.props.action ? this.createAction() : false;
   }
 }

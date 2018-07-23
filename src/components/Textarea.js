@@ -12,7 +12,7 @@ class Input extends Component {
   render() {
     return this.props.render ? (
       <textarea
-        rows="6"
+        rows="3"
         className="form-control"
         onKeyPress={this.submit.bind(this)}
         placeholder={"New blog article " + this.props.record}

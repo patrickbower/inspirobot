@@ -19,8 +19,8 @@ class App extends Component {
 
   componentWillMount() {
     var ref = firebase.database().ref();
-    ref.once("value").then(snap => {
-      const data = snap.val();
+    ref.once("value").then(snapshot => {
+      const data = snapshot.val();
       this.setState({ data });
     });
   }
