@@ -13,7 +13,7 @@
     "answer": {
       "yes": "title",
       "no": "suggestion",
-      "input": "default"
+      "input": true
     }
   },
   "title": {
@@ -41,7 +41,7 @@
     "question": "Thats a great article - shall I save it?",
     "answer": {
       "yes": "save-article",
-      "input": "default"
+      "input": true
     },
     "display": "article"
   },
@@ -49,28 +49,46 @@
     "question": "would you like me to suggestion something?",
     "answer": {
       "yes": "get-suggestion",
-      "input": "default"
+      "no": "make-suggestion",
+      "input": true
     }
   },
   "restart": {
     "question": "Shame, perhaps we should start over?",
     "answer": {
       "yes": "intro",
-      "input": "default"
-    }
-  },
-  "take-suggestion": {
-    "question": "{read back the suggestion} - sounds great - shall I save it?",
-    "answer": {
-      "yes": "add-suggestion",
-      "input": "default"
+      "input": true
     }
   },
   "make-suggestion": {
-    "question": "Let's hear it",
+    "question": "Have you got a suggestion for me?",
     "answer": {
-      "input": "take-suggestion"
+      "yes": "take-suggestion",
+      "input": true
     }
+  },
+  "take-suggestion": {
+    "question": "Lets hear it!",
+    "answer": {
+      "input": "add-suggestion"
+    },
+    "record": "suggestion"
+  },
+  "add-suggestion": {
+    "question": "Shall I save it?",
+    "answer": {
+      "yes": "save-suggestion",
+      "input": true
+    }
+  },
+  "save-suggestion": {
+    "question": "Thanks, do you want to do anything else?",
+    "answer": {
+      "yes": "intro",
+      "indirect": "add-suggestion",
+      "input": true
+    },
+    "action": "add-suggestion"
   },
   "display-article": {
     "question": "Would you like to save this?",
@@ -86,13 +104,10 @@
     "question": "Please select a topic",
     "answer": {
       "indirect": "content",
-      "input": "default"
+      "input": true
     },
     "record": "title",
     "action": "get-suggestion"
-  },
-  "add-suggestion": {
-    "action": "add-suggestion"
   },
   "listen-for-suggestion": {
     "listeners": ["idea", "suggestion", "topic"],
