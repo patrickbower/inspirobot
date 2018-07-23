@@ -12,13 +12,6 @@ class Action extends Component {
   //   return false;
   // }
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  // TODO: Need to be able to add the name of the suggestion
-  // into the input and store the key of the suggestion in the
-  // data so we can ajax remove it from the suggest list.
   getSuggestion() {
     const { suggest } = this.props.data;
     const buttonsArr = [];
