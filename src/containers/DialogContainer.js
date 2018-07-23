@@ -6,7 +6,7 @@ import bot from "../data/bot.json";
 
 // TODO: Write functions that respond to botActions
 // import * as botActions from "../middleware/botActions";
-import * as userLocalStorage from "../middleware/localStorageApi";
+import * as UserLocalStorage from "../middleware/localStorageApi";
 
 // components
 import Conversation from "../components/Conversation";
@@ -130,12 +130,13 @@ class DialogContainer extends Component {
    */
   input = currentValue => {
     this.setConversationDialog(currentValue);
-    userLocalStorage.set(this.state.record, currentValue);
+    UserLocalStorage.set(this.state.record, currentValue);
     const nextDialogPiece = this.state["input"] || this.state["textarea"];
     this.setDialog(this.getDialog(nextDialogPiece), currentValue);
   };
 
   render() {
+    // console.table(this.state);
     return (
       <React.Fragment>
         <main className="main">
@@ -146,6 +147,7 @@ class DialogContainer extends Component {
             action={this.state.action}
             data={this.props.data}
             answer={this.answer}
+            record={this.state.record}
           />
           <div className="input-buttons">
             <NoButton render={this.state.no} answer={this.answer} />

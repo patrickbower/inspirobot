@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as Utils from "../utils/tools";
-
 import ActionButton from "./ActionButton";
 
 class Action extends Component {
@@ -8,19 +7,14 @@ class Action extends Component {
   //   console.log("Action component - saveArticle()");
   //   return false;
   // }
-
   // addSuggestion() {
   //   console.log("Action component - addSuggestion");
   //   return false;
   // }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      trigger: undefined
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   // TODO: Need to be able to add the name of the suggestion
   // into the input and store the key of the suggestion in the
@@ -33,6 +27,7 @@ class Action extends Component {
         <ActionButton
           render={true}
           answer={this.props.answer}
+          record={this.props.record}
           text={suggest[key]}
           key={key}
         />

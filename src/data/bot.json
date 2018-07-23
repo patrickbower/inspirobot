@@ -85,9 +85,10 @@
   "get-suggestion": {
     "question": "Please select a topic",
     "answer": {
-      "indirect": "title",
+      "indirect": "content",
       "input": "default"
     },
+    "record": "title",
     "action": "get-suggestion"
   },
   "add-suggestion": {
