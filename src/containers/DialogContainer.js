@@ -3,12 +3,10 @@ import React, { Component } from "react";
 
 // middleware
 import bot from "../data/bot.json";
-
-// TODO: Write functions that respond to botActions
-// import * as botActions from "../middleware/botActions";
 import * as UserLocalStorage from "../middleware/localStorageApi";
 
 // components
+import DisplayContainer from "./DisplayContainer";
 import Conversation from "../components/Conversation";
 import Question from "../components/Question";
 import YesButton from "../components/YesButton";
@@ -16,8 +14,6 @@ import NoButton from "../components/NoButton";
 import Input from "../components/Input";
 import Textarea from "../components/Textarea";
 import Action from "../components/Action";
-// containers
-import DisplayContainer from "./DisplayContainer";
 
 // component
 class DialogContainer extends Component {
@@ -75,7 +71,6 @@ class DialogContainer extends Component {
    * we need for this piece of dialog.
    */
   setDialog(dialog) {
-    // console.log(dialog);
     this.setState({
       question: dialog.question || false,
       yes: dialog.answer.yes || false,
@@ -136,7 +131,6 @@ class DialogContainer extends Component {
   };
 
   render() {
-    // console.table(this.state);
     return (
       <React.Fragment>
         <main className="main">

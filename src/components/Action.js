@@ -14,6 +14,12 @@ class Action extends Component {
     };
   }
 
+  /**
+   * @function saveArticle
+   *
+   * Add new article content from local storage into
+   * the firebase database.
+   */
   saveArticle() {
     const itemsRef = firebase.database().ref("article");
     itemsRef.push({
@@ -22,6 +28,7 @@ class Action extends Component {
       subject: UserLocalStorage.get("subject")
     });
 
+    // remove item from suggestion list if from bot
     if (this.state.useSuggestion) {
       this.removeSuggestion();
     }
@@ -29,6 +36,11 @@ class Action extends Component {
     return false;
   }
 
+  /**
+   * @function addSuggestion
+   *
+   * Add new suggestion from local storage
+   */
   addSuggestion() {
     const itemsRef = firebase.database().ref("suggest");
     itemsRef.push({ title: UserLocalStorage.get("suggestion") });
@@ -36,6 +48,11 @@ class Action extends Component {
     return false;
   }
 
+  /**
+   * @function removeSuggestion
+   *
+   * Remove suggestion from firebase
+   */
   removeSuggestion() {
     const itemId = this.state.suggestionId;
     firebase
@@ -44,6 +61,11 @@ class Action extends Component {
       .remove();
   }
 
+  /**
+   * @function useSuggestion
+   *
+   * Manipulate state if suggestion item is clicked
+   */
   useSuggestion = (state, itemId) => {
     this.setState({
       useSuggestion: state,
@@ -51,6 +73,12 @@ class Action extends Component {
     });
   };
 
+  /**
+   * @function getSuggestion
+   * @return {object} JSX list of buttons
+   *
+   * Create UI list of suggestions as buttons
+   */
   getSuggestion() {
     const { suggest } = this.props.data;
     const buttonsArr = [];
@@ -68,17 +96,20 @@ class Action extends Component {
         />
       );
     }
-
     return <div className="input-buttons">{buttonsArr}</div>;
   }
 
+  /**
+   * @function createAction
+   *
+   * Create and call dynamic method
+   */
   createAction() {
     const actionCall = Utils.dashToCamelCase(this.props.action);
     return this[actionCall]();
   }
 
   render() {
-    console.log(this.state);
     return this.props.action ? this.createAction() : false;
   }
 }

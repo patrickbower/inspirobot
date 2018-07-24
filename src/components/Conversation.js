@@ -5,6 +5,11 @@ import React, { Component } from "react";
 import "../App.css";
 
 class DialogConversation extends Component {
+  /**
+   * @function printDialogConversation
+   *
+   * Display chat-bot and user conversation
+   */
   printDialogConversation() {
     return this.props.conversation.map((item, index) => {
       let key = Object.keys(item).pop();

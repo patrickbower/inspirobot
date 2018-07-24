@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
 class Input extends Component {
+  /**
+   * @function sumbit
+   * @param {event} event
+   *
+   * Return value and clear out input when complete.
+   */
   submit(event) {
     let { value } = event.currentTarget;
     if (event.key === "Enter" && value.length > 0) {

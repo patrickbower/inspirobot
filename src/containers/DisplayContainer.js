@@ -6,6 +6,12 @@ import * as userLocalStorage from "../middleware/localStorageApi";
 import Article from "../components/Article";
 
 class Display extends Component {
+  /**
+   * @function article
+   * @returns {object} Component
+   *
+   * Create article to display from local storage
+   */
   article() {
     var title = userLocalStorage.get("title");
     var subject = userLocalStorage.get("subject");

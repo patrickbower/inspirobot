@@ -1,3 +1,10 @@
+/**
+ * Util functions for using local storage
+ 
+ * @param {string} key
+ * @param {string} value
+ */
+
 export function set(key, value) {
   return localStorage.setItem(key, value);
 }

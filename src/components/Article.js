@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class Article extends Component {
+  /**
+   * Article component used to display before submitting
+   * to firebase.
+   */
   render() {
     return (
       <div className="article">
